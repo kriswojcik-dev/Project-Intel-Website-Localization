@@ -1,0 +1,424 @@
+/* These colors control the whole hero section. */
+:root {
+	--hero-dark: #00285c;
+	--hero-light: #e7f7ff;
+	--hero-accent: #00c7fd;
+	--hero-blue: #0071c5;
+	--page-light: #f3f7fa;
+	--text-muted: #536b80;
+	--line-light: #c9d8e5;
+}
+
+/* Keep sizing predictable on every screen. */
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background-color: var(--page-light);
+	color: var(--hero-dark);
+	font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* The hero is the first visual impression of the page. */
+.hero-section {
+	align-items: center;
+	background-color: var(--hero-dark);
+	color: white;
+	display: flex;
+	min-height: 590px;
+	overflow: hidden;
+	padding: 72px 10%;
+	position: relative;
+}
+
+/* Two soft rings add depth without distracting from the heading. */
+.hero-section::before,
+.hero-section::after {
+	border: 1px solid rgba(0, 199, 253, 0.24);
+	border-radius: 50%;
+	content: '';
+	height: 500px;
+	position: absolute;
+	right: -130px;
+	top: -80px;
+	width: 500px;
+}
+
+.hero-section::after {
+	height: 320px;
+	right: 60px;
+	top: 185px;
+	width: 320px;
+}
+
+.hero-content {
+	max-width: 720px;
+	position: relative;
+	z-index: 1;
+}
+
+.intel-logo {
+	display: block;
+	margin-bottom: 52px;
+	width: 155px;
+}
+
+.hero-label {
+	color: var(--hero-accent);
+	font-family: Arial, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: 0.14em;
+	margin: 0 0 22px;
+	text-transform: uppercase;
+}
+
+.hero-section h1 {
+	font-size: clamp(52px, 9vw, 106px);
+	font-weight: normal;
+	letter-spacing: -0.06em;
+	line-height: 0.9;
+	margin: 0 0 32px;
+}
+
+.hero-section h1 em {
+	color: var(--hero-light);
+	font-style: italic;
+}
+
+.hero-description {
+	color: #c5d9e8;
+	font-size: 18px;
+	line-height: 1.55;
+	margin: 0;
+	max-width: 460px;
+}
+
+.hero-link {
+	border-bottom: 1px solid var(--hero-accent);
+	color: white;
+	display: inline-block;
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 0.08em;
+	margin-top: 34px;
+	padding-bottom: 10px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.hero-link span {
+	color: var(--hero-accent);
+	font-size: 18px;
+	margin-left: 28px;
+}
+
+.hero-link:hover {
+	border-color: white;
+}
+
+.hero-marker {
+	align-items: center;
+	bottom: 72px;
+	color: var(--hero-light);
+	display: flex;
+	flex-direction: column;
+	font-family: Arial, sans-serif;
+	font-size: 10px;
+	gap: 34px;
+	position: absolute;
+	right: 10%;
+	z-index: 1;
+}
+
+.hero-marker::before {
+	background-color: var(--hero-accent);
+	content: '';
+	height: 25px;
+	position: absolute;
+	top: 17px;
+	width: 1px;
+}
+
+/* The timeline uses cards so each moment is easy to scan. */
+.timeline-section {
+	background-color: var(--page-light);
+	padding: 105px 10% 125px;
+}
+
+.timeline-heading {
+	margin: 0 auto 55px;
+	max-width: 1200px;
+}
+
+.timeline-label {
+	color: var(--hero-blue);
+	font-family: Arial, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: 0.14em;
+	margin: 0 0 18px;
+	text-transform: uppercase;
+}
+
+.timeline-heading h2 {
+	font-size: clamp(42px, 6vw, 76px);
+	font-weight: normal;
+	letter-spacing: -0.06em;
+	line-height: 0.95;
+	margin: 0;
+}
+
+.timeline-heading h2 em {
+	color: var(--hero-blue);
+	font-style: italic;
+}
+
+.timeline-intro {
+	color: var(--text-muted);
+	line-height: 1.55;
+	margin: 22px 0 0;
+	max-width: 540px;
+}
+
+.timeline-list {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 22px;
+	margin: 0 auto;
+	max-width: 1200px;
+	min-width: 0;
+	overflow-x: scroll;
+	overscroll-behavior-x: contain;
+	padding: 8px 0 24px;
+	scroll-padding-left: 0;
+	scroll-snap-type: x proximity;
+	scroll-behavior: smooth;
+	touch-action: pan-x;
+	-webkit-overflow-scrolling: touch;
+}
+
+.timeline-card {
+	background-color: var(--hero-dark);
+	border: 1px solid var(--line-light);
+	flex: 0 0 285px;
+	min-height: 410px;
+	overflow: hidden;
+	padding: 24px;
+	position: relative;
+	scroll-snap-align: start;
+	scroll-snap-stop: normal;
+	transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.timeline-list::-webkit-scrollbar {
+	height: 8px;
+}
+
+.timeline-list::-webkit-scrollbar-track {
+	background-color: #dce8f0;
+}
+
+.timeline-list::-webkit-scrollbar-thumb {
+	background-color: var(--hero-blue);
+	border-radius: 8px;
+}
+
+.timeline-card:hover {
+	box-shadow: 8px 8px 0 rgba(0, 199, 253, 0.35);
+	transform: translateY(-5px);
+}
+
+.timeline-card h2 {
+	color: var(--hero-accent);
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	letter-spacing: 0.12em;
+	margin: 0 0 12px;
+	opacity: 1;
+	position: relative;
+	transition: opacity 0.2s ease;
+	z-index: 3;
+}
+
+.timeline-card h3 {
+	color: white;
+	font-size: 26px;
+	font-weight: normal;
+	line-height: 1.05;
+	margin: 0 0 20px;
+	min-height: 55px;
+	opacity: 1;
+	position: relative;
+	transition: opacity 0.2s ease;
+	z-index: 3;
+}
+
+.timeline-card img {
+	display: block;
+	bottom: 0;
+	height: calc(100% - 132px);
+	left: 0;
+	margin: 0;
+	object-fit: cover;
+	position: absolute;
+	top: 132px;
+	width: 100%;
+	z-index: 0;
+}
+
+.timeline-card p {
+	background-color: rgba(0, 40, 92, 0.9);
+	inset: 0;
+	color: white;
+	font-size: 14px;
+	line-height: 1.55;
+	margin: 0;
+	max-height: none;
+	opacity: 0;
+	overflow: auto;
+	padding: 155px 24px 24px;
+	position: absolute;
+	transform: translateY(8px);
+	transition: opacity 0.2s ease, transform 0.2s ease;
+	visibility: hidden;
+	z-index: 2;
+}
+
+.timeline-card:hover h2,
+.timeline-card:hover h3 {
+	opacity: 1;
+}
+
+.timeline-card:hover p {
+	opacity: 1;
+	transform: translateY(0);
+	visibility: visible;
+}
+
+.timeline-hint {
+	background-color: var(--hero-dark);
+	color: #c5d9e8;
+	bottom: 0;
+	font-family: Arial, sans-serif;
+	font-size: 11px;
+	left: 0;
+	letter-spacing: 0.1em;
+	margin: 0;
+	padding: 18px 10%;
+	position: fixed;
+	right: 0;
+	text-align: center;
+	text-transform: uppercase;
+	z-index: 10;
+}
+
+.mobile-hint {
+	display: none;
+}
+
+@media (max-width: 650px) {
+	.hero-section {
+		min-height: 650px;
+		padding: 48px 8% 90px;
+	}
+
+	.intel-logo {
+		margin-bottom: 42px;
+	}
+
+	.hero-description {
+		font-size: 16px;
+		max-width: 340px;
+	}
+
+	.hero-marker {
+		bottom: 34px;
+		flex-direction: row;
+		gap: 45px;
+		left: 8%;
+		right: auto;
+	}
+
+	.hero-marker::before {
+		height: 1px;
+		left: 23px;
+		top: 5px;
+		width: 30px;
+	}
+
+	.timeline-section {
+		padding: 70px 8% 100px;
+	}
+
+	.timeline-heading {
+		align-items: start;
+		display: block;
+		margin-bottom: 38px;
+	}
+
+	.timeline-intro {
+		margin-top: 24px;
+	}
+
+	.timeline-list {
+		display: flex;
+		flex-wrap: nowrap;
+		max-width: none;
+		overflow-x: auto;
+		overflow-y: hidden;
+		padding: 8px 0 24px;
+		scroll-snap-type: x mandatory;
+		touch-action: pan-x;
+	}
+
+	.timeline-card {
+		flex: 0 0 100%;
+		min-height: 410px;
+		scroll-snap-align: start;
+	}
+
+	.timeline-card p {
+		font-size: 18px;
+		line-height: 1.6;
+		opacity: 0;
+		transform: translateY(8px);
+		visibility: hidden;
+	}
+
+	.timeline-card:hover p {
+		opacity: 0;
+		transform: translateY(8px);
+		visibility: hidden;
+	}
+
+	.timeline-card h2,
+	.timeline-card h3 {
+		opacity: 1;
+	}
+
+	.timeline-card.is-open p {
+		opacity: 1;
+		transform: translateY(0);
+		visibility: visible;
+	}
+
+	.desktop-hint {
+		display: none;
+	}
+
+	.mobile-hint {
+		display: inline;
+	}
+
+	.timeline-card img {
+		height: calc(100% - 132px);
+	}
+}
