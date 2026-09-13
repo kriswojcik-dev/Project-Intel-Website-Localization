@@ -195,14 +195,16 @@ body {
 	margin: 0 auto;
 	max-width: 1200px;
 	min-width: 0;
-	overflow-x: scroll;
+	overflow-x: auto;
 	overscroll-behavior-x: contain;
 	padding: 8px 0 24px;
+	scrollbar-width: none;
 	scroll-padding-left: 0;
 	scroll-snap-type: x proximity;
 	scroll-behavior: smooth;
 	touch-action: pan-x;
 	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: none;
 }
 
 .timeline-card {
@@ -219,16 +221,7 @@ body {
 }
 
 .timeline-list::-webkit-scrollbar {
-	height: 8px;
-}
-
-.timeline-list::-webkit-scrollbar-track {
-	background-color: #dce8f0;
-}
-
-.timeline-list::-webkit-scrollbar-thumb {
-	background-color: var(--hero-blue);
-	border-radius: 8px;
+	display: none;
 }
 
 .timeline-card:hover {
@@ -319,8 +312,8 @@ body {
 .timeline-controls {
 	display: flex;
 	gap: 10px;
-	justify-content: flex-end;
-	margin: 0 auto 14px;
+	justify-content: center;
+	margin: 14px auto 0;
 	max-width: 1200px;
 }
 
