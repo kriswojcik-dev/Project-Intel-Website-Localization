@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -274,7 +276,13 @@
         waterTitle: 'Water & Waste',
         waterText: 'Intel conserves billions of gallons of water annually and collaborates with local communities to restore watersheds. Intel also upcycles and recycles materials to reduce waste and advance a circular economy.',
         learnMore: 'Learn More',
-        newsletterTitle: 'Subscribe to our Newsletter'
+        newsletterLabel: 'Stay informed',
+        newsletterTitle: 'Subscribe to our Newsletter',
+        newsletterDescription: "Receive updates about Intel's sustainability progress and latest commitments.",
+        emailLabel: 'Email address',
+        emailPlaceholder: 'you@example.com',
+        subscribeButton: 'Subscribe',
+        newsletterStatus: 'Thank you for subscribing.'
       },
       ar: {
         languageLabel: 'اللغة',
@@ -318,7 +326,13 @@
         waterTitle: 'المياه والنفايات',
         waterText: 'تحافظ إنتل على مليارات الجالونات من المياه سنوياً وتتعاون مع المجتمعات المحلية لاستعادة مستجمعات المياه. كما تعيد تدوير المواد وتستخدمها لتقليل النفايات ودعم الاقتصاد الدائري.',
         learnMore: 'اعرف المزيد',
-        newsletterTitle: 'اشترك في نشرتنا الإخبارية'
+        newsletterLabel: 'ابقَ على اطلاع',
+        newsletterTitle: 'اشترك في نشرتنا الإخبارية',
+        newsletterDescription: 'احصل على آخر الأخبار حول تقدم إنتل في الاستدامة والتزاماتها الجديدة.',
+        emailLabel: 'البريد الإلكتروني',
+        emailPlaceholder: 'you@example.com',
+        subscribeButton: 'اشترك',
+        newsletterStatus: 'شكراً لاشتراكك.'
       }
     };
 
@@ -338,6 +352,10 @@
         element.textContent = translations[selectedLanguage][element.dataset.i18n];
       });
 
+      document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
+        element.placeholder = translations[selectedLanguage][element.dataset.i18nPlaceholder];
+      });
+
       localStorage.setItem('intel-language', selectedLanguage);
     }
 
@@ -345,28 +363,42 @@
       setLanguage(event.target.value);
     });
 
-    setLanguage(savedLanguage);
+    window.addEventListener('DOMContentLoaded', () => {
+      setLanguage(savedLanguage);
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const newsletterForm = document.querySelector('#newsletter-form');
+      const newsletterStatus = document.querySelector('#newsletter-status');
+
+      newsletterForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        newsletterStatus.hidden = false;
+        newsletterForm.reset();
+      });
+    });
   </script>
 
   <!-- 3-Column Content Section -->
   <section class="content-section">
-    <div class="content-columns">
+    <div class="content-columns container">
+      <div class="row g-4">
 
       <!-- Column 1 -->
-      <div class="content-column">
-        <h2 data-i18n="riseTitle">RISE Strategy</h2>
+      <div class="content-column col-12 col-md-6 col-lg-4">
+        <h2><i class="bi bi-arrow-up-right-circle content-icon" aria-hidden="true"></i><span data-i18n="riseTitle">RISE Strategy</span></h2>
         <p data-i18n="riseText">
           Under its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy,
           Intel sets ambitious 2030 goals, including driving industry-wide
           progress on climate action, water stewardship, and waste reduction.
         </p>
         <!-- Learn More Button -->
-        <a href="#" data-i18n="learnMore">Learn More</a>
+        <a href="#"><span data-i18n="learnMore">Learn More</span><i class="bi bi-arrow-right learn-more-icon" aria-hidden="true"></i></a>
       </div>
 
       <!-- Column 2 -->
-      <div class="content-column">
-        <h2 data-i18n="commitmentTitle">Commitment</h2>
+      <div class="content-column col-12 col-md-6 col-lg-4">
+        <h2><i class="bi bi-bullseye content-icon" aria-hidden="true"></i><span data-i18n="commitmentTitle">Commitment</span></h2>
         <p data-i18n="commitmentText">
           In 2022, Intel pledged to achieve net-zero greenhouse gas emissions
           (Scope 1 and 2) by 2040. This commitment builds on decades of
@@ -374,12 +406,12 @@
           industry.
         </p>
         <!-- Learn More Button -->
-        <a href="#" data-i18n="learnMore">Learn More</a>
+        <a href="#"><span data-i18n="learnMore">Learn More</span><i class="bi bi-arrow-right learn-more-icon" aria-hidden="true"></i></a>
       </div>
 
       <!-- Column 3 -->
-      <div class="content-column">
-        <h2 data-i18n="waterTitle">Water &amp; Waste</h2>
+      <div class="content-column col-12 col-md-6 col-lg-4">
+        <h2><i class="bi bi-droplet-half content-icon" aria-hidden="true"></i><span data-i18n="waterTitle">Water &amp; Waste</span></h2>
         <p data-i18n="waterText">
           Intel conserves billions of gallons of water annually and
           collaborates with local communities to restore watersheds.
@@ -387,16 +419,35 @@
           advance a circular economy.
         </p>
         <!-- Learn More Button -->
-        <a href="#" data-i18n="learnMore">Learn More</a>
+        <a href="#"><span data-i18n="learnMore">Learn More</span><i class="bi bi-arrow-right learn-more-icon" aria-hidden="true"></i></a>
       </div>
 
+      </div>
     </div>
   </section>
 
   <!-- Subscription Form -->
-  <section>
-    <h2 data-i18n="newsletterTitle">Subscribe to our Newsletter</h2>
-    <!-- Add form here -->
+  <section class="newsletter-section">
+    <div class="container newsletter-container">
+      <div class="row">
+        <div class="col-12 col-lg-8">
+          <p class="newsletter-label" data-i18n="newsletterLabel">Stay informed</p>
+          <h2 data-i18n="newsletterTitle">Subscribe to our Newsletter</h2>
+          <p class="newsletter-description" data-i18n="newsletterDescription">Receive updates about Intel's sustainability progress and latest commitments.</p>
+
+          <form class="row g-3 align-items-end" id="newsletter-form">
+            <div class="col-12 col-md-8">
+              <label class="form-label" for="newsletter-email" data-i18n="emailLabel">Email address</label>
+              <input class="form-control" id="newsletter-email" type="email" data-i18n-placeholder="emailPlaceholder" placeholder="you@example.com" required />
+            </div>
+            <div class="col-12 col-md-4">
+              <button class="btn newsletter-button w-100" type="submit" data-i18n="subscribeButton">Subscribe</button>
+            </div>
+          </form>
+          <p class="newsletter-status" id="newsletter-status" data-i18n="newsletterStatus" hidden>Thank you for subscribing.</p>
+        </div>
+      </div>
+    </div>
   </section>
 </body>
 </html>
