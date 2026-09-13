@@ -37,6 +37,40 @@ body {
 	position: relative;
 }
 
+.language-switcher {
+	align-items: center;
+	display: flex;
+	font-family: Arial, sans-serif;
+	gap: 10px;
+	position: absolute;
+	right: 10%;
+	top: 30px;
+	z-index: 2;
+}
+
+.language-switcher label {
+	color: var(--hero-light);
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.language-switcher select {
+	background-color: transparent;
+	border: 1px solid rgba(231, 247, 255, 0.65);
+	color: white;
+	cursor: pointer;
+	font: inherit;
+	font-size: 12px;
+	padding: 8px 10px;
+}
+
+.language-switcher option {
+	background-color: var(--hero-dark);
+	color: white;
+}
+
 /* Two soft rings add depth without distracting from the heading. */
 .hero-section::before,
 .hero-section::after {
@@ -324,6 +358,35 @@ body {
 	display: none;
 }
 
+html[dir='rtl'] {
+	font-family: Tahoma, Arial, sans-serif;
+}
+
+html[dir='rtl'] .language-switcher {
+	left: 10%;
+	right: auto;
+}
+
+html[dir='rtl'] .hero-section::before {
+	left: -130px;
+	right: auto;
+}
+
+html[dir='rtl'] .hero-section::after {
+	left: 60px;
+	right: auto;
+}
+
+html[dir='rtl'] .hero-marker {
+	left: 10%;
+	right: auto;
+}
+
+html[dir='rtl'] .hero-link span[aria-hidden='true'] {
+	margin-left: 0;
+	margin-right: 28px;
+}
+
 .content-section {
 	background-color: var(--hero-light);
 	border-top: 1px solid var(--line-light);
@@ -383,6 +446,16 @@ body {
 		padding: 48px 8% 90px;
 	}
 
+	.language-switcher {
+		left: 8%;
+		right: auto;
+		top: 22px;
+	}
+
+	html[dir='rtl'] .language-switcher {
+		left: 8%;
+	}
+
 	.intel-logo {
 		margin-bottom: 42px;
 	}
@@ -398,6 +471,11 @@ body {
 		gap: 45px;
 		left: 8%;
 		right: auto;
+	}
+
+	html[dir='rtl'] .hero-marker {
+		left: auto;
+		right: 8%;
 	}
 
 	.hero-marker::before {
