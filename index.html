@@ -282,7 +282,11 @@
         emailLabel: 'Email address',
         emailPlaceholder: 'you@example.com',
         subscribeButton: 'Subscribe',
-        newsletterStatus: 'Thank you for subscribing.'
+        newsletterStatus: 'Thank you for subscribing.',
+        copyright: '© 2026 Intel Corporation. All rights reserved.',
+        privacyLink: 'Privacy Policy',
+        termsLink: 'Terms of Use',
+        contactLink: 'Contact'
       },
       ar: {
         languageLabel: 'اللغة',
@@ -332,7 +336,11 @@
         emailLabel: 'البريد الإلكتروني',
         emailPlaceholder: 'you@example.com',
         subscribeButton: 'اشترك',
-        newsletterStatus: 'شكراً لاشتراكك.'
+        newsletterStatus: 'شكراً لاشتراكك.',
+        copyright: '© ٢٠٢٦ شركة إنتل. جميع الحقوق محفوظة.',
+        privacyLink: 'سياسة الخصوصية',
+        termsLink: 'شروط الاستخدام',
+        contactLink: 'تواصل معنا'
       }
     };
 
@@ -346,6 +354,7 @@
       document.documentElement.lang = selectedLanguage;
       document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
       document.title = isArabic ? 'إنتل: الاستدامة عبر العصور' : 'Intel: Sustainability Through the Ages';
+      document.querySelector('.site-footer nav').setAttribute('aria-label', isArabic ? 'تنقل التذييل' : 'Footer navigation');
       languageSelect.value = selectedLanguage;
 
       document.querySelectorAll('[data-i18n]').forEach((element) => {
@@ -449,5 +458,25 @@
       </div>
     </div>
   </section>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="row align-items-center gy-3">
+        <div class="col-12 col-lg-5">
+          <p class="footer-brand">Intel</p>
+          <p class="footer-copyright" data-i18n="copyright">© 2026 Intel Corporation. All rights reserved.</p>
+        </div>
+        <div class="col-12 col-lg-7">
+          <nav aria-label="Footer navigation">
+            <ul class="footer-links">
+              <li><a href="#" data-i18n="privacyLink">Privacy Policy</a></li>
+              <li><a href="#" data-i18n="termsLink">Terms of Use</a></li>
+              <li><a href="#" data-i18n="contactLink">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

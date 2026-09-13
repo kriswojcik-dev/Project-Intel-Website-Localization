@@ -546,6 +546,55 @@ html[dir='rtl'] .content-column a:hover .learn-more-icon {
 	margin: 22px 0 0;
 }
 
+.site-footer {
+	background-color: #001d42;
+	color: #c5d9e8;
+	padding: 30px 10% 36px;
+}
+
+.footer-container {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.footer-brand {
+	color: white;
+	font-family: Arial, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	letter-spacing: 0.04em;
+	margin: 0 0 6px;
+}
+
+.footer-copyright {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	margin: 0;
+}
+
+.footer-links {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+	justify-content: flex-end;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.footer-links a {
+	color: var(--hero-light);
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+.footer-links a:hover {
+	color: var(--hero-accent);
+	text-decoration: underline;
+}
+
 @media (max-width: 650px) {
 	.hero-section {
 		min-height: 650px;
@@ -677,5 +726,13 @@ html[dir='rtl'] .content-column a:hover .learn-more-icon {
 
 	.newsletter-container {
 		max-width: none;
+	}
+
+	.site-footer {
+		padding: 30px 8% 36px;
+	}
+
+	.footer-links {
+		justify-content: flex-start;
 	}
 }
