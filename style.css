@@ -37,40 +37,6 @@ body {
 	position: relative;
 }
 
-.language-switcher {
-	align-items: center;
-	display: flex;
-	font-family: Arial, sans-serif;
-	gap: 10px;
-	position: absolute;
-	right: 10%;
-	top: 30px;
-	z-index: 2;
-}
-
-.language-switcher label {
-	color: var(--hero-light);
-	font-size: 11px;
-	font-weight: bold;
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-}
-
-.language-switcher select {
-	background-color: transparent;
-	border: 1px solid rgba(231, 247, 255, 0.65);
-	color: white;
-	cursor: pointer;
-	font: inherit;
-	font-size: 12px;
-	padding: 8px 10px;
-}
-
-.language-switcher option {
-	background-color: var(--hero-dark);
-	color: white;
-}
-
 /* Two soft rings add depth without distracting from the heading. */
 .hero-section::before,
 .hero-section::after {
@@ -340,61 +306,53 @@ body {
 .timeline-hint {
 	background-color: var(--hero-dark);
 	color: #c5d9e8;
-	bottom: 0;
 	font-family: Arial, sans-serif;
 	font-size: 11px;
-	left: 0;
 	letter-spacing: 0.1em;
-	margin: 0;
-	padding: 18px 10%;
-	position: fixed;
-	right: 0;
+	margin: 0 auto 18px;
+	max-width: 1200px;
+	padding: 14px 18px;
 	text-align: center;
 	text-transform: uppercase;
-	z-index: 10;
 }
 
 .mobile-hint {
 	display: none;
 }
 
-html[dir='rtl'] {
+/* Mirror the layout when the browser or document applies an RTL direction. */
+html:dir(rtl) {
+	direction: rtl;
 	font-family: Tahoma, Arial, sans-serif;
 }
 
-html[dir='rtl'] .language-switcher {
-	left: 10%;
-	right: auto;
-}
-
-html[dir='rtl'] .hero-section::before {
+html:dir(rtl) .hero-section::before {
 	left: -130px;
 	right: auto;
 }
 
-html[dir='rtl'] .hero-section::after {
+html:dir(rtl) .hero-section::after {
 	left: 60px;
 	right: auto;
 }
 
-html[dir='rtl'] .hero-marker {
+html:dir(rtl) .hero-marker {
 	left: 10%;
 	right: auto;
 }
 
-html[dir='rtl'] .hero-link span[aria-hidden='true'] {
-	margin-left: 0;
-	margin-right: 28px;
-}
-
-html[dir='rtl'] .learn-more-icon {
+html:dir(rtl) .learn-more-icon {
 	margin-left: 0;
 	margin-right: 12px;
 	transform: rotate(180deg);
 }
 
-html[dir='rtl'] .content-column a:hover .learn-more-icon {
+html:dir(rtl) .content-column a:hover .learn-more-icon {
 	transform: rotate(180deg) translateX(4px);
+}
+
+html:dir(rtl) .footer-links {
+	justify-content: flex-start;
 }
 
 .content-section {
@@ -601,16 +559,6 @@ html[dir='rtl'] .content-column a:hover .learn-more-icon {
 		padding: 48px 8% 90px;
 	}
 
-	.language-switcher {
-		left: 8%;
-		right: auto;
-		top: 22px;
-	}
-
-	html[dir='rtl'] .language-switcher {
-		left: 8%;
-	}
-
 	.intel-logo {
 		margin-bottom: 42px;
 	}
@@ -628,7 +576,7 @@ html[dir='rtl'] .content-column a:hover .learn-more-icon {
 		right: auto;
 	}
 
-	html[dir='rtl'] .hero-marker {
+	html:dir(rtl) .hero-marker {
 		left: auto;
 		right: 8%;
 	}
