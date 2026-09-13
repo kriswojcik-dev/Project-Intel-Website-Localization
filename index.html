@@ -34,6 +34,7 @@
     <div class="timeline-heading">
       <div>
         <p class="timeline-label">The archive / 01—11</p>
+
         <h2>Milestones <em>in motion.</em></h2>
         <p class="timeline-intro">From the first microprocessor to a net-zero future, follow the decisions that shaped Intel's sustainability journey.</p>
       </div>
@@ -330,5 +331,49 @@
     </div>
   </footer>
 
+  <script>
+    const rtlLanguages = new Set([
+      'ar', 'arc', 'bal', 'ckb', 'dv', 'fa', 'he', 'ku', 'ps', 'sd', 'syr', 'ur', 'yi'
+    ]);
+
+    function getPageDirection() {
+      const body = document.body;
+      const bodyClasses = body.classList;
+      const documentLanguage = document.documentElement.lang.toLowerCase().split('-')[0];
+      const bodyLanguage = (body.getAttribute('lang') || '').toLowerCase().split('-')[0];
+
+      if (body.dir === 'rtl' || bodyClasses.contains('translated-rtl')) {
+        return 'rtl';
+      }
+
+      if (body.dir === 'ltr' || bodyClasses.contains('translated-ltr')) {
+        return 'ltr';
+      }
+
+      return rtlLanguages.has(documentLanguage) || rtlLanguages.has(bodyLanguage) ? 'rtl' : 'ltr';
+    }
+
+    function updatePageDirection() {
+      const nextDirection = getPageDirection();
+
+      if (document.documentElement.dir !== nextDirection) {
+        document.documentElement.dir = nextDirection;
+      }
+    }
+
+    const directionObserver = new MutationObserver(updatePageDirection);
+
+    directionObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['dir', 'lang']
+    });
+
+    directionObserver.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['class', 'dir', 'lang']
+    });
+
+    updatePageDirection();
+  </script>
 </body>
 </html>
