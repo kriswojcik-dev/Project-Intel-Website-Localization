@@ -316,6 +316,38 @@ body {
 	text-transform: uppercase;
 }
 
+.timeline-controls {
+	display: flex;
+	gap: 10px;
+	justify-content: flex-end;
+	margin: 0 auto 14px;
+	max-width: 1200px;
+}
+
+.timeline-control {
+	background-color: white;
+	border: 1px solid var(--hero-blue);
+	border-radius: 0;
+	color: var(--hero-blue);
+	font-family: Arial, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.timeline-control:hover,
+.timeline-control:focus-visible {
+	background-color: var(--hero-blue);
+	border-color: var(--hero-blue);
+	color: white;
+}
+
+.timeline-control i {
+	font-size: 14px;
+	margin: 0 5px;
+}
+
 .mobile-hint {
 	display: none;
 }
@@ -427,6 +459,33 @@ html:dir(rtl) .footer-links {
 	transform: translateX(4px);
 }
 
+.site-modal {
+	border: 0;
+	border-radius: 0;
+}
+
+.site-modal .modal-header {
+	background-color: var(--hero-dark);
+	border-bottom: 0;
+	color: white;
+}
+
+.site-modal .modal-title {
+	font-size: 30px;
+	font-weight: normal;
+}
+
+.site-modal .btn-close {
+	filter: invert(1);
+}
+
+.site-modal .modal-body {
+	color: var(--text-muted);
+	font-size: 16px;
+	line-height: 1.6;
+	padding: 28px;
+}
+
 .newsletter-section {
 	background-color: var(--hero-dark);
 	color: white;
@@ -502,6 +561,28 @@ html:dir(rtl) .footer-links {
 	font-family: Arial, sans-serif;
 	font-size: 13px;
 	margin: 22px 0 0;
+}
+
+.newsletter-toast {
+	background-color: white;
+	border: 0;
+	border-radius: 0;
+	bottom: 24px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+	color: var(--hero-dark);
+	position: fixed;
+	right: 24px;
+	z-index: 1090;
+}
+
+.newsletter-toast .toast-header {
+	background-color: var(--hero-light);
+	border-bottom: 1px solid var(--line-light);
+	color: var(--hero-dark);
+}
+
+.newsletter-toast .toast-body {
+	line-height: 1.5;
 }
 
 .site-footer {
@@ -674,6 +755,13 @@ html:dir(rtl) .footer-links {
 
 	.newsletter-container {
 		max-width: none;
+	}
+
+	.newsletter-toast {
+		bottom: 16px;
+		left: 8%;
+		right: 8%;
+		width: auto;
 	}
 
 	.site-footer {
